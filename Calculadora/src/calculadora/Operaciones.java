@@ -1,7 +1,6 @@
 package calculadora;
 
 import static java.lang.Math.sqrt;
-
 /**
  *
  * @authors G2-Mantenimiento de Software
@@ -69,4 +68,38 @@ public class Operaciones {
         String formattedResult = String.format("%.2f", result);
         return Double.parseDouble(formattedResult);
      }
+     
+     public double factorial(double n) {
+        if (n <= 0) {
+            throw new IllegalArgumentException("Solo factorial para números positivos.");
+        }
+        boolean esInt = n % 1 == 0;
+        
+        if(esInt){
+            result = 1;
+            for (int i = 2; i <= n; i++) {
+                result *= i;
+            }
+            
+        } else{
+            result = Math.sqrt(2 * Math.PI * n) * Math.pow(n / Math.E, n);
+            double term = 1/(12*n);
+            double num = 1;
+            
+            while (term > (1e-15)){
+            num *= -term;
+            result += num / (n + term);
+            term *= (term + 1) / (12 * n);
+        }
+        }
+        
+        String formattedResult = String.format("%.2f", result);
+        return Double.parseDouble(formattedResult);
+    }
+     
+    public double inversa (double n){
+        result = 1/n;
+        String formattedResult = String.format("%.2f", result);
+        return Double.parseDouble(formattedResult);
+    }
 }
