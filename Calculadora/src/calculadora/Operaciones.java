@@ -70,4 +70,10 @@ public class Operaciones {
         String formattedResult = String.format("%.2f", result);
         return Double.parseDouble(formattedResult);
      }
+     
+     public double inversa (double n){
+        result = 1/n;
+        String resultFormat = String.format("%.4f", result);
+        return Double.parseDouble(resultFormat);
+    }
 }

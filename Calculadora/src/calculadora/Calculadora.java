@@ -37,7 +37,7 @@ public class Calculadora extends javax.swing.JFrame {
         botonPotenciaCuadrado = new javax.swing.JButton();
         botonPotenciaCubo = new javax.swing.JButton();
         buttonPotenciaN = new javax.swing.JButton();
-        botonIgual = new javax.swing.JButton();
+        buttonInversa = new javax.swing.JButton();
         panel = new javax.swing.JPanel();
         botonC = new javax.swing.JButton();
         botonRaiz = new javax.swing.JButton();
@@ -60,6 +60,7 @@ public class Calculadora extends javax.swing.JFrame {
         botonPunto = new javax.swing.JButton();
         botonPorcentaje = new javax.swing.JButton();
         etiquetaMuestra = new javax.swing.JLabel();
+        botonIgual = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,14 +106,14 @@ public class Calculadora extends javax.swing.JFrame {
         });
         panel1.add(buttonPotenciaN);
 
-        botonIgual.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        botonIgual.setText("=");
-        botonIgual.addActionListener(new java.awt.event.ActionListener() {
+        buttonInversa.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        buttonInversa.setText("1/x");
+        buttonInversa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonIgualActionPerformed(evt);
+                buttonInversaActionPerformed(evt);
             }
         });
-        panel1.add(botonIgual);
+        panel1.add(buttonInversa);
 
         panel.setLayout(new java.awt.GridLayout(5, 4));
 
@@ -308,6 +309,14 @@ public class Calculadora extends javax.swing.JFrame {
         etiquetaMuestra.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         etiquetaMuestra.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
+        botonIgual.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        botonIgual.setText("=");
+        botonIgual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonIgualActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -317,8 +326,10 @@ public class Calculadora extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(etiquetaNumeros, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(etiquetaMuestra, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 42, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(etiquetaMuestra, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botonIgual, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -335,14 +346,16 @@ public class Calculadora extends javax.swing.JFrame {
                 .addComponent(etiquetaMuestra, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(etiquetaNumeros)
-                .addContainerGap(339, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 343, Short.MAX_VALUE)
+                .addComponent(botonIgual, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(101, 101, 101)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(20, Short.MAX_VALUE)))
+                    .addContainerGap(100, Short.MAX_VALUE)))
         );
 
         pack();
@@ -636,6 +649,14 @@ public class Calculadora extends javax.swing.JFrame {
         cadenaNumeros = String.valueOf(resultado); //convertimos el valor a cadena
     }//GEN-LAST:event_botonPorcentajeActionPerformed
 
+    private void buttonInversaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonInversaActionPerformed
+        primerNumero = Double.parseDouble(cadenaNumeros);
+        etiquetaMuestra.setText("1/"+cadenaNumeros);
+        resultado = op.inversa(primerNumero);
+        etiquetaNumeros.setText(String.format("%.4f", resultado));
+        cadenaNumeros = String.valueOf(resultado);
+    }//GEN-LAST:event_buttonInversaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -688,6 +709,7 @@ public class Calculadora extends javax.swing.JFrame {
     private javax.swing.JButton botonRaizCubica;
     private javax.swing.JButton botonRestar;
     private javax.swing.JButton botonSumar;
+    private javax.swing.JButton buttonInversa;
     private javax.swing.JButton buttonPotenciaN;
     private javax.swing.JLabel etiquetaMuestra;
     private javax.swing.JLabel etiquetaNumeros;
