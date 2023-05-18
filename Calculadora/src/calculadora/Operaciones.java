@@ -52,9 +52,10 @@ public class Operaciones {
         return Double.parseDouble(formattedResult);
     }
     
-     public double potenciaCubo(double n1){
-        result = Math.pow(n1, 3);
-        String formattedResult = String.format("%.2f", result);
+     public double potenciaCubica(double num){
+        double resultado;
+        resultado= num*num*num;
+        String formattedResult = String.format("%.2f", resultado);
         return Double.parseDouble(formattedResult);
     }
      
