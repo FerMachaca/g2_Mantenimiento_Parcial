@@ -677,11 +677,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_botonFactorialActionPerformed
 
     private void botonInversaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInversaActionPerformed
-        primerNumero = Double.parseDouble(cadenaNumeros);
-        etiquetaMuestra.setText("1/"+cadenaNumeros);
-        resultado = op.inversa(primerNumero);
-        etiquetaNumeros.setText(String.format("%.2f", resultado));
-        cadenaNumeros = String.valueOf(resultado);
+
     }//GEN-LAST:event_botonInversaActionPerformed
 
     /**

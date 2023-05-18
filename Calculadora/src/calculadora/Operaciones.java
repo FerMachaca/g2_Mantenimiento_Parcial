@@ -99,7 +99,7 @@ public class Operaciones {
      
     public double inversa (double n){
         result = 1/n;
-        String formattedResult = String.format("%.2f", result);
-        return Double.parseDouble(formattedResult);
+        String resultFormat = String.format("%.4f", result);
+        return Double.parseDouble(resultFormat);
     }
 }
