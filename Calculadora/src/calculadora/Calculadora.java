@@ -366,8 +366,8 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void botonPotenciaCuboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPotenciaCuboActionPerformed
         primerNumero = Double.parseDouble(cadenaNumeros);
-        etiquetaMuestra.setText(cadenaNumeros+"^3");
-        resultado = op.potenciaCubo(primerNumero);
+        etiquetaMuestra.setText(cadenaNumeros+"^3"); // simbolizacion de potencia cubica
+        resultado = op.potenciaCubica(primerNumero);// el resultado retorna la operacion de la clase operaciones 
         etiquetaNumeros.setText(String.format("%.2f", resultado));
         cadenaNumeros = String.valueOf(resultado); //convertimos el valor a cadena
     }//GEN-LAST:event_botonPotenciaCuboActionPerformed
