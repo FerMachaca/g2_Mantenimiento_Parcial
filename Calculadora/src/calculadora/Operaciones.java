@@ -46,8 +46,9 @@ public class Operaciones {
     }
     
     public double potenciaCuadrado(double n1){
-        result = Math.pow(n1, 2);
-        String formattedResult = String.format("%.2f", result);
+        double resultado;
+        resultado = n1 * n1;
+        String formattedResult = String.format("%.2f", resultado);
         return Double.parseDouble(formattedResult);
     }
     

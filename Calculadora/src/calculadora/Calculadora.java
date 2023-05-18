@@ -357,7 +357,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_botonRaizCubicaActionPerformed
 
     private void botonPotenciaCuadradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPotenciaCuadradoActionPerformed
-        primerNumero = Double.parseDouble(cadenaNumeros);
+        primerNumero = Double.parseDouble(cadenaNumeros);     
         etiquetaMuestra.setText(cadenaNumeros+"^2");
         resultado = op.potenciaCuadrado(primerNumero);
         etiquetaNumeros.setText(String.format("%.2f", resultado));
